@@ -97,3 +97,30 @@ body{
     padding-left: 0;
     padding-right: 0;
 }
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-collapse {
+    overflow: hidden;
+}
+
+.search-container {
+    margin: 1rem 0;
+}
+
+.search-form {
+    flex: 1;
+}
+
+@media (max-width: 767px) {
+    .search-container {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .search-form {
+        max-width: 400px;
+    }
+}
