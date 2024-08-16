@@ -19,7 +19,16 @@
         padding: 0.5rem;
     }
 
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    .navbar-nav .nav-link {
+        margin: 0 0.5rem;
+    }
+
     .search-container {
+        margin-left: auto;
         display: flex;
         align-items: center;
     }
@@ -27,19 +36,23 @@
     .search-form {
         display: flex;
         align-items: center;
-        margin-left: auto;
     }
 
     .navbar-collapse {
         overflow: hidden;
     }
 
-    .navbar-nav {
-        flex-direction: column;
-    }
+    @media (max-width: 767px) {
+        .search-form {
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-    .navbar-nav .nav-link {
-        margin: 0.5rem 0;
+        .search-form input,
+        .search-form button {
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
     }
 </style>
 
