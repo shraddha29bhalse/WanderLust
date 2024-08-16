@@ -1,22 +1,45 @@
-
 <style>
-    .btn-search{
+    .btn-search {
         margin-left: 0.3rem;
         display: flex;
         align-items: center;
-        background-color:red;
+        background-color: red;
         color: white;
-        padding: 0 1rem 0 1rem ;
-        border-radius:1.5rem;
+        padding: 0 1rem;
+        border-radius: 1.5rem;
     }
-    .btn-search:hover{
-        background-color:red;
+
+    .btn-search:hover {
+        background-color: red;
         color: white;
     }
-    .btn-search i{
+
+    .btn-search i {
         display: inline;
-      
         padding: 0.5rem;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-form {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .navbar-collapse {
+        overflow: hidden;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .navbar-nav .nav-link {
+        margin: 0.5rem 0;
     }
 </style>
 
@@ -24,38 +47,39 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
 
-        <button class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="/listings">Explore</a>
-                
             </div>
 
-            <div class="navbar-nav- ms-auto">
-                <form class="d-flex" role="search">
+            <div class="search-container d-md-none">
+                <form class="search-form d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-                  </form>
+                </form>
             </div>
-            
+
+            <div class="navbar-nav ms-auto d-none d-md-flex">
+                <form class="search-form d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+                </form>
+            </div>
 
             <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/listings/new">Airbnb Your Home </a>
-            <% if(!currUser) { %>
-                <a class="nav-link" href="/signup"><b>Sign up</b></a>
-                <a class="nav-link" href="/login"><b>Log in</b></a>
-            <% } %>
-            <% if(currUser) { %>
-                <a class="nav-link" href="/logout"><b>Log out</b></a>
-            <% } %>
+                <a class="nav-link" href="/listings/new">Airbnb Your Home</a>
+                <% if (!currUser) { %>
+                    <a class="nav-link" href="/signup"><b>Sign up</b></a>
+                    <a class="nav-link" href="/login"><b>Log in</b></a>
+                <% } %>
+                <% if (currUser) { %>
+                    <a class="nav-link" href="/logout"><b>Log out</b></a>
+                <% } %>
             </div>
-            
-
         </div>
     </div>
 </nav>
