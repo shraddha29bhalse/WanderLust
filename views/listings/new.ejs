@@ -1,0 +1,89 @@
+<% layout("/layout/boilerplate.ejs") -%>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <h3>Create a new listing</h3>
+            <form action="/listings" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" placeholder="Add a catchy title" class="form-control"
+                        required />
+                    <div class="invalid-feedback">Please enter a title</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea type="text" name="listing[description]" class="form-control" required></textarea>
+                    <div class="invalid-feedback">enter a short description</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image.url" class="form-label">Upload Listing Image</label>
+                    <input type="file" name="listing[image]"  class="form-control" required>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="listing[price]" placeholder="1200" class="form-control" required>
+                        <div class="invalid-feedback">price should be valid</div>
+                    </div>
+                    <div class="mb-3 col-md-8  mt-2">
+                            <label for="country"></label>
+                            <select class="form-select"  name="country" id="country" aria-label="Default select example">
+                                <option value="">Select Country</option>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="listing[location]" placeholder="jaipur/rajsthan" class="form-control"
+                            required>
+                        <div class="invalid-feedback">Location should be valid </div>
+                    </div>
+                    <div class="mb-3 col-md-4 ">
+                        <label for="category" class="form-label">Category</label>
+                        <select name="listing[category]" id="category" class="form-control form-select" required>
+                            <option value="pools">Amazing Pools</option>
+                            <option value="beach">Beach</option>
+                            <option value="castles">Castles</option>
+                            <option value="deserts">Desert</option>
+                            <option value="landmark">Landmark</option>
+                            <option value="farms">Farm</option>
+                            <option value="iconic-cities">Iconic Cities</option>
+                            <option value="mountains">Mountains</option>
+                            <option value="rooms">Rooms</option>
+                            <option value="capming">Camping</option>
+                            <option value="trending">Trending</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-dark add-btn">Add</button>
+
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        fetch('https://restcountries.com/v3.1/all')
+            .then(response => response.json())
+            .then(data => {
+                // Extract country names and sort them
+                const countries = data.map(country => country.name.common);
+                countries.sort(); // Sorts the array in ascending order
+
+                const select = document.getElementById("country");
+
+                // Append sorted country options to the select element
+                countries.forEach(country => {
+                    const option = document.createElement("option");
+                    option.value = country;
+                    option.textContent = country;
+                    select.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching countries:', error));
+    </script>
