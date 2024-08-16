@@ -71,13 +71,6 @@ const sessionOptions ={
 };
 
 
-
-
-//root : from where webiste starts
-app.get("/", (req, res) => {
-    res.send("hi! i am root");
-});
-
 app.use(session(sessionOptions));
 app.use(flash());
 app.use(passport.initialize());
