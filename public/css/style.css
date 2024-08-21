@@ -189,3 +189,65 @@ body {
         padding: 0.2rem 0;
     }
 }
+
+/* Review Card Styling */
+.review-card {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #f8f9fa;
+    max-width: 300px;
+    word-wrap: break-word; /* Ensures text wraps properly */
+}
+
+.review-card h5 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.review-card p {
+    margin-bottom: 0.5rem;
+}
+
+.review-stars {
+    display: flex;
+    align-items: center;
+}
+
+.review-stars i {
+    color: #ffc107; /* Gold color for stars */
+    font-size: 1.5rem;
+}
+
+.delete-btn {
+    background-color: #343a40; /* Darker color for delete button */
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #dc3545; /* Change to red on hover */
+}
+
+@media (max-width: 767px) {
+    .review-card {
+        max-width: 100%;
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    .review-stars i {
+        font-size: 1.25rem; /* Slightly smaller stars on mobile */
+    }
+
+    .delete-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+}
+
