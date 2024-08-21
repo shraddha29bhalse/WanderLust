@@ -21,18 +21,3 @@
     );
     });
   })();
-
-  
-function toggleIcons() {
-    const iconContainer = document.querySelector('.category-icons');
-    const expandBtn = document.querySelector('.expand-btn');
-    
-    iconContainer.classList.toggle('expanded');
-    
-    if (iconContainer.classList.contains('expanded')) {
-        expandBtn.textContent = 'Show Less';
-    } else {
-        expandBtn.textContent = 'Show More';
-    }
-}
-
